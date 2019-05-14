@@ -1,0 +1,56 @@
+<configuration>
+    <property>
+            <name>dfs.namenode.name.dir</name>
+            <value>file://{{NAMENODE_DIR}}</value>
+    </property>
+
+    <property>
+            <name>dfs.datanode.data.dir</name>
+            <value>file://{{DATANODE_DIR}}</value>
+    </property>
+
+    <property>
+            <name>dfs.replication</name>
+            <value>{{REPLICATION}}</value>
+    </property>
+
+    <property>
+            <name>dfs.namenode.rpc-bind-host</name>
+            <value>0.0.0.0</value>
+    </property>
+
+    <property>
+            <name>dfs.namenode.servicerpc-bind-host</name>
+            <value>0.0.0.0</value>
+    </property>
+
+    <property>
+            <name>dfs.namenode.lifeline.rpc-bind-host</name>
+            <value>0.0.0.0</value>
+    </property>
+
+    <property>
+            <name>dfs.namenode.http-bind-host</name>
+            <value>0.0.0.0</value>
+    </property>
+
+    <property>
+            <name>dfs.namenode.https-bind-host</name>
+            <value>0.0.0.0</value>
+    </property>
+
+    <property>
+      <name>dfs.datanode.use.datanode.hostname</name>
+      <value>false</value>
+    </property>
+
+    <property>
+      <name>dfs.client.use.datanode.hostname</name>
+      <value>false</value>
+    </property>
+
+    <property>
+      <name>dfs.namenode.datanode.registration.ip-hostname-check</name>
+      <value>false</value>
+    </property>
+</configuration>

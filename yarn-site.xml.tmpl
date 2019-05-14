@@ -1,0 +1,43 @@
+<configuration>
+    <property>
+            <name>yarn.acl.enable</name>
+            <value>0</value>
+    </property>
+
+    <property>
+            <name>yarn.resourcemanager.hostname</name>
+            <value>{{NODE_MASTER}}</value>
+    </property>
+
+    <property>
+            <name>yarn.nodemanager.aux-services</name>
+            <value>mapreduce_shuffle</value>
+    </property>
+
+
+    <property>
+        <name>yarn.resourcemanager.bind-host</name>
+        <value>0.0.0.0</value>
+    </property>
+
+    <property>
+      <name>yarn.nodemanager.vmem-check-enabled</name>
+      <value>false</value>
+    </property>
+
+    <property>
+      <name>yarn.nodemanager.aux-services</name>
+      <value>mapreduce_shuffle</value>
+    </property>
+
+    <property>
+      <name>yarn.nodemanager.aux-services.mapreduce_shuffle.class</name>
+      <value>org.apache.hadoop.mapred.ShuffleHandler</value>
+    </property>
+
+    <property>
+        <name>yarn.nodemanager.bind-host</name>
+        <value>0.0.0.0</value>
+    </property>
+
+</configuration>
