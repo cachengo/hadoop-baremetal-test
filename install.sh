@@ -13,12 +13,14 @@
 # limitations under the License.
 set -e
 
+apt-get update
 apt-get install -y openjdk-8-jdk
 JAVA_HOME=/usr/lib/jvm/java-8-openjdk-arm64
 echo "JAVA_HOME=$JAVA_HOME" >> /etc/environment
 
 # Change this next line to install elsewhere
 cd ~
+rm -rf ./hadoop
 VERSION=2.8.5
 wget https://archive.apache.org/dist/hadoop/common/hadoop-$VERSION/hadoop-$VERSION.tar.gz
 tar -xzf hadoop-$VERSION.tar.gz
@@ -58,10 +60,11 @@ rm -rf /protobuf
 
 . /etc/environment
 cd /
+rm -rf /hadoop
 git clone https://github.com/apache/hadoop.git
 cd /hadoop
 git checkout branch-$VERSION
-mvn package -Pdist,native -DskipTests -Dtar
+sudo mvn package -Pdist,native -DskipTests -Dtar
 mkdir -p $HADOOP_HOME/lib/native
 cp -r hadoop-dist/target/hadoop-$VERSION/lib/native/* $HADOOP_HOME/lib/native
 cd ..

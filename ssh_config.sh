@@ -16,5 +16,9 @@ if [ ! -f "$HOME/.ssh/ssh_config" ]; then
   echo "Host * " >> $HOME/.ssh/config
   echo "  UserKnownHostsFile /dev/null" >> $HOME/.ssh/config
   echo "  StrictHostKeyChecking no" >> $HOME/.ssh/config
-  /etc/init.d/ssh restart
+  sudo /etc/init.d/ssh restart
+fi
+
+if [ ! -f "$HOME/.ssh/id_rsa" ]; then
+  ssh-keygen -t rsa -N "" -f ~/.ssh/id_rsa
 fi

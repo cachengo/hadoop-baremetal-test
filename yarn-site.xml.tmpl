@@ -39,5 +39,18 @@
         <name>yarn.nodemanager.bind-host</name>
         <value>0.0.0.0</value>
     </property>
+    <property>
+      <name>yarn.nodemanager.resource.memory-mb</name>
+      <value>{{MAX_MEMORY}}</value>
+    </property>
+    <property>
+      <name>yarn.scheduler.maximum-allocation-mb</name>
+      <value>{{MAX_MEMORY}}</value>
+    </property>
+    <property>
+      <name>yarn.scheduler.minimum-allocation-mb</name>
+      <value>64</value>
+    </property>
+
 
 </configuration>
