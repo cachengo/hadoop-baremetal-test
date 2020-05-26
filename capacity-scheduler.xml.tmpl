@@ -1,0 +1,34 @@
+<configuration>
+
+    <!--Define one child queue and give it all available resources -->
+    <property>
+        <name>yarn.scheduler.capacity.root.queues</name>
+        <value>a</value>
+    </property>
+
+    <property>
+        <name>yarn.scheduler.capacity.root.a.capacity</name>
+        <value>100.00</value>
+    </property>
+
+    <property>
+        <name>yarn.scheduler.capacity.root.capacity</name>
+        <value>100.00</value>
+    </property>
+
+    <property>
+        <name>yarn.scheduler.capacity.root.a.maximum-allocation-mb</name>
+        <value>{{MAX_MEMORY}}</value>
+    </property>
+
+    <property>
+        <name>yarn.scheduler.capacity.root.a.maximum-allocation-vcores</name>
+        <value>4</value>
+    </property>
+
+    <property>
+        <name>yarn.scheduler.capacity.queue-mappings</name>
+        <value>u:cachengo:a</value>
+    </property>
+
+</configuration>

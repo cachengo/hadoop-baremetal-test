@@ -40,4 +40,52 @@
         <value>0.0.0.0</value>
     </property>
 
+
+    <property>
+        <name>yarn.acl.enable</name>
+        <value>0</value>
+    </property>
+
+
+    <property>
+        <name>yarn.nodemanager.bind-host</name>
+        <value>0.0.0.0</value>
+    </property>
+
+    <!--Enable CapacityScheduler -->
+    <property>
+      <name>yarn.resourcemanager.scheduler.class</name>
+      <value>org.apache.hadoop.yarn.server.resourcemanager.scheduler.capacity.CapacityScheduler</value>
+    </property>
+    
+    
+    <property>
+        <name>yarn.nodemanager.resource.detect-hardware-capabilities</name>
+        <value>true</value>
+    </property>
+
+    <property>
+      <name>yarn.scheduler.minimum-allocation-mb</name>
+      <value>682</value>
+    </property>
+
+    <property>
+      <name>yarn.scheduler.maximum-allocation-mb</name>
+      <value>{{MAX_MEMORY}}</value>
+    </property>
+
+    <property>
+      <name>yarn.nodemanager.resource.memory-mb</name>
+      <value>{{MAX_MEMORY}}</value>
+    </property>
+
+    <property>
+      <name>yarn.app.mapreduce.am.command-opts</name>
+      <value>-Xmx1091m</value>
+    </property>
+    
+    <property>
+        <name>yarn.scheduler.maximum-allocation-vcores</name>
+        <value>4</value>
+    </property>
 </configuration>

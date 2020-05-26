@@ -6,17 +6,17 @@
 
     <property>
         <name>yarn.app.mapreduce.am.resource.mb</name>
-        <value>{{MAX_MEMORY}}</value>
+        <value>272</value>
     </property>
 
     <property>
         <name>mapreduce.map.memory.mb</name>
-        <value>{{MAX_MEMORY}}</value>
+        <value>682</value>
     </property>
 
     <property>
         <name>mapreduce.reduce.memory.mb</name>
-        <value>{{MAX_MEMORY}}</value>
+        <value>1364</value>
     </property>
 
     <property>
@@ -33,5 +33,21 @@
         <name>mapreduce.job.reduces</name>
         <value>5</value>
     </property>
+
+    <property>
+        <name>mapreduce.map.java.opts</name>
+        <value>-Xmx545m</value>
+    </property>
+
+    <property>
+        <name>mapreduce.reduce.java.opts</name>
+        <value>-Xmx1091m</value>
+    </property>
+
+    <!--<property>
+        <name>mapreduce.task.io.sort.mb</name>
+        <value>{{MAX_MEMORY}}</value>
+    </property>-->
+    
 
 </configuration>
