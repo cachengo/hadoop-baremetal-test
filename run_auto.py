@@ -89,7 +89,7 @@ def main():
             except OSError:
                pass
 
-            output_file="./results/"+param['name']+"."+param[type]
+            output_file="./results/"+param['name']+"."+type
 
             print("Writing command output to file "+output_file)
             f=open(output_file,mode="w")
