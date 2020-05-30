@@ -46,8 +46,10 @@ parameters = [
 def main():
 
    print('Creating template files')
-   
-   os.remove('log.txt')
+   try:
+      os.remove('log.txt')
+   except:
+      pass
    minmax = ['min','max']
 
    for param in parameters:
@@ -90,7 +92,7 @@ def main():
             f=open(output_file,mode="w")
             f.write(output)
             f.close()
-            
+
          except subprocess.SubprocessError as ex:
             print('Error running TestDFSIO write')
 
