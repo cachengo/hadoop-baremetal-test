@@ -81,6 +81,7 @@ def main():
          except subprocess.SubprocessError as ex:
             print("Exception starting cluster:" + ex)
 
+         output =''
          try:
             output = subprocess.check_output('./run_dfsio_write.sh')
             try:
@@ -88,10 +89,11 @@ def main():
             except OSError:
                pass
 
-            output_file ="results/"+param['name']+"."+param[type]
-            f=open(output_file,mode="w")
-            f.write(output)
-            f.close()
+         output_file = "results/"+param['name']+"."+param[type]
+         print("Writing command output to file "+output_file)
+         f=open(output_file,mode="w")
+         f.write(output)
+         f.close()
 
          except subprocess.SubprocessError as ex:
             print('Error running TestDFSIO write')
