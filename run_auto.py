@@ -83,7 +83,7 @@ def main():
 
          output =''
          try:
-            output = subprocess.check_output('./run_dfsio_write.sh')
+            output = subprocess.getoutput('./run_dfsio_write.sh')
             try:
                os.mkdir('results')
             except OSError:
