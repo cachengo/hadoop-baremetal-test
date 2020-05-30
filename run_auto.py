@@ -89,11 +89,12 @@ def main():
             except OSError:
                pass
 
-         output_file = "results/"+param['name']+"."+param[type]
-         print("Writing command output to file "+output_file)
-         f=open(output_file,mode="w")
-         f.write(output)
-         f.close()
+            output_file="./results/"+param['name']+"."+param[type]
+
+            print("Writing command output to file "+output_file)
+            f=open(output_file,mode="w")
+            f.write(output)
+            f.close()
 
          except subprocess.SubprocessError as ex:
             print('Error running TestDFSIO write')
