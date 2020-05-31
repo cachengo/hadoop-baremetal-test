@@ -97,7 +97,8 @@ done
 ssh cachengo@$MASTER_IP 'start-dfs.sh'
 ssh cachengo@$MASTER_IP 'start-yarn.sh'
 ssh cachengo@$MASTER_IP 'mr-jobhistory-daemon.sh start historyserver'
-ssh cachengo@$MASTER_IP 'yarn namenode'
+ssh cachengo@$MASTER_IP "echo 127.0.0.1 >> "'$HADOOP_HOME/etc/hadoop/slaves'
+#ssh cachengo@$MASTER_IP 'yarn namenode'
 
 # Quick test
 ssh cachengo@$MASTER_IP 'hdfs dfsadmin -report'
