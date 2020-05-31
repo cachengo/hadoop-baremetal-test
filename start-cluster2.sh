@@ -88,13 +88,16 @@ for ((i=0;i<${#WORKER_IPS[@]};++i)); do
   ssh cachengo@${WORKER_IPS[i]} "sudo mkdir -p $HADOOP_TMP"
   ssh cachengo@${WORKER_IPS[i]} "sudo chown -R cachengo:cachengo $HADOOP_TMP"
   ssh cachengo@${WORKER_IPS[i]} "sudo chmod -R a+rwx $HADOOP_TMP"
-  
-  ssh cachengo@$MASTER_IP "echo ${WORKER_HOSTNAMES[i]} >> "'$HADOOP_HOME/etc/hadoop/slaves'
+  if [[ ${WORKER_IPS[i]} != $MASTER_IP  ]]
+  then
+    ssh cachengo@$MASTER_IP "echo ${WORKER_HOSTNAMES[i]} >> "'$HADOOP_HOME/etc/hadoop/slaves'
+  fi
 done
 
 ssh cachengo@$MASTER_IP 'start-dfs.sh'
 ssh cachengo@$MASTER_IP 'start-yarn.sh'
 ssh cachengo@$MASTER_IP 'mr-jobhistory-daemon.sh start historyserver'
+ssh cachengo@$MASTER_IP 'yarn namenode'
 
 # Quick test
 ssh cachengo@$MASTER_IP 'hdfs dfsadmin -report'
