@@ -17,7 +17,7 @@ def make_tmpl():
 
 #define parameter array
 parameters = [
-   {'name':'yarn.scheduler.minimum-allocation-mb', 'def':'682', 'min':'100', 'max':'4000', 'file':'yarn-site.xml'} ,
+   {'name':'yarn.scheduler.minimum-allocation-mb', 'def':'682', 'min':'100', 'max':'2000', 'file':'yarn-site.xml'} ,
    {'name':'yarn.scheduler.maximum-allocation-mb', 'def':'2500' , 'min':'100','max':'4000' , 'file':'yarn-site.xml'} ,
    {'name':'yarn.nodemanager.resource.memory-mb',  'def':'2500',  'min':'100','max':'4000', 'file':'yarn-site.xml'} ,
    {'name':'yarn.app.mapreduce.am.command-opts',   'def':' -Xmx1091m',  'min':'-Xmx100m','max':'-Xmx3500m', 'file':'yarn-site.xml'} ,
