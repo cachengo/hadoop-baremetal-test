@@ -19,28 +19,28 @@ def make_tmpl():
 parameters = [
    {'name':'yarn.scheduler.minimum-allocation-mb', 'def':'682', 'min':'100', 'max':'2000', 'file':'yarn-site.xml'} ,
    {'name':'yarn.scheduler.maximum-allocation-mb', 'def':'2500' , 'min':'100','max':'4000' , 'file':'yarn-site.xml'} ,
-   {'name':'yarn.nodemanager.resource.memory-mb',  'def':'2500',  'min':'100','max':'4000', 'file':'yarn-site.xml'} ,
-   {'name':'yarn.app.mapreduce.am.command-opts',   'def':' -Xmx1091m',  'min':'-Xmx100m','max':'-Xmx3500m', 'file':'yarn-site.xml'} ,
-   {'name':'yarn.scheduler.maximum-allocation-vcores','def':'4','min':'1','max':'6', 'file':'yarn-site.xml'} ,
+   {'name':'yarn.nodemanager.resource.memory-mb',  'def':'2500',  'min':'682','max':'4000', 'file':'yarn-site.xml'} ,
+   {'name':'yarn.app.mapreduce.am.command-opts',   'def':' -Xmx1091m',  'min':'-Xmx500m','max':'-Xmx3500m', 'file':'yarn-site.xml'} ,
+   {'name':'yarn.scheduler.maximum-allocation-vcores','def':'4','min':'1','max':'8', 'file':'yarn-site.xml'} ,
 
-   {'name':'yarn.app.mapreduce.am.resource.mb ','def':'272','min':'50','max':'3500', 'file':'mapred-site.xml'} ,
-   {'name':'mapreduce.map.memory.mb','def':'682','min':'100','max':'4000', 'file':'mapred-site.xml'} ,
-   {'name':'mapreduce.reduce.memory.mb','def':'1364','min':'100','max':'4000', 'file':'mapred-site.xml'} ,
+   {'name':'yarn.app.mapreduce.am.resource.mb ','def':'272','min':'300','max':'3500', 'file':'mapred-site.xml'} ,
+   {'name':'mapreduce.map.memory.mb','def':'682','min':'682','max':'4000', 'file':'mapred-site.xml'} ,
+   {'name':'mapreduce.reduce.memory.mb','def':'1364','min':'500','max':'4000', 'file':'mapred-site.xml'} ,
    {'name':'mapreduce.job.maps','def':'6','min':'1','max':'20', 'file':'mapred-site.xml'} ,
    {'name':'mapreduce.job.reduces','def':'5','min':'1','max':'20', 'file':'mapred-site.xml'} ,
-   {'name':'mapreduce.map.java.opts','def':'-Xmx545m','min':'-Xmx100m','max':'-Xmx1500m', 'file':'mapred-site.xml'} ,
+   {'name':'mapreduce.map.java.opts','def':'-Xmx545m','min':'-Xmx400m','max':'-Xmx1500m', 'file':'mapred-site.xml'} ,
    {'name':'mapreduce.reduce.java.opts','def':'-Xmx1091m','min':'-Xmx200m','max':'-Xmx3000m', 'file':'mapred-site.xml'} ,
-   {'name':'mapreduce.task.io.sort.mb','def':'2500','min':'100','max':'4000', 'file':'mapred-site.xml'} ,
+   {'name':'mapreduce.task.io.sort.mb','def':'2500','min':'500','max':'4000', 'file':'mapred-site.xml'} ,
 
-   {'name':'yarn.app.mapreduce.am.resource.memory-mb', 'def':'2500' ,'min':'100','max':'4000', 'file':'resource-types.xml'} ,
-   {'name':'mapreduce.map.resource.vcores','def':'4','min':'1','max':'4', 'file':'resource-types.xml'} ,
-   {'name':'mapreduce.reduce.resource.vcores','def':'4','min':'1','max':'4', 'file':'resource-types.xml'} ,
-   {'name':'yarn.app.mapreduce.am.resource.vcores','def':'4','min':'1','max':'4', 'file':'resource-types.xml'} ,
+   {'name':'yarn.app.mapreduce.am.resource.memory-mb', 'def':'2500' ,'min':'682','max':'4000', 'file':'resource-types.xml'} ,
+   {'name':'mapreduce.map.resource.vcores','def':'4','min':'1','max':'6', 'file':'resource-types.xml'} ,
+   {'name':'mapreduce.reduce.resource.vcores','def':'4','min':'1','max':'6', 'file':'resource-types.xml'} ,
+   {'name':'yarn.app.mapreduce.am.resource.vcores','def':'4','min':'1','max':'6', 'file':'resource-types.xml'} ,
 
    {'name':'yarn.scheduler.capacity.root.a.capacity','def':'100.00','min':'1','max':'100', 'file':'capacity-scheduler.xml'} ,
    {'name':'yarn.scheduler.capacity.root.capacity','def':'100.00','min':'1','max':'100', 'file':'capacity-scheduler.xml'} ,
-   {'name':'yarn.scheduler.capacity.root.a.maximum-allocation-mb','def':'2500','min':'100','max':'4000', 'file':'capacity-scheduler.xml'} ,
-   {'name':'yarn.scheduler.capacity.root.a.maximum-allocation-vcores','def':'4','min':'1','max':'4', 'file':'capacity-scheduler.xml'} ,
+   {'name':'yarn.scheduler.capacity.root.a.maximum-allocation-mb','def':'2500','min':'682','max':'4000', 'file':'capacity-scheduler.xml'} ,
+   {'name':'yarn.scheduler.capacity.root.a.maximum-allocation-vcores','def':'4','min':'1','max':'6', 'file':'capacity-scheduler.xml'} ,
 ]
 
 def main():
