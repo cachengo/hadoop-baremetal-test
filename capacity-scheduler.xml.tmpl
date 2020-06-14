@@ -26,9 +26,14 @@
         <value>4</value>
     </property>
 
+    <!-- The following setting affects the security mappings.
+    If submitting a job  from a machine other than the master node, the user name must be added here.
+    The format is u:<user>:a 
+    where "u"  means user and "a"  is the name of the queue.
+     -->
     <property>
         <name>yarn.scheduler.capacity.queue-mappings</name>
-        <value>u:cachengo:a</value>
+        <value>u:cachengo:a,u:rec:a</value>
     </property>
 
 </configuration>

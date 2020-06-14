@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+
+<!-- This config file is to be used on the machine that will submit the job.
+If you intend to submit jobs directly in the master node, you do not need to use this file.
+
+To configure the job submitter to be able to access HDFS, replace the IP Address for that of the machine running the
+Hadoop namenode on each settting below.
+-->
+
+<configuration>
+    <property>
+            <name>dfs.namenode.rpc-bind-host</name>
+            <value>192.168.1.27</value>
+    </property>
+
+    <property>
+            <name>dfs.namenode.servicerpc-bind-host</name>
+            <value>192.168.1.27</value>
+    </property>
+
+
+    <property>
+            <name>dfs.namenode.http-bind-host</name>
+            <value>192.168.1.27</value>
+    </property>
+
+    <property>
+            <name>dfs.namenode.https-bind-host</name>
+            <value>192.168.1.27</value>
+    </property>
+
+</configuration>

@@ -47,12 +47,12 @@
     </property>
 
 
-    <!--Enable CapacityScheduler -->
-    <property>
+    <!--Enable FairScheduler -->
+    <!--<property>
       <name>yarn.resourcemanager.scheduler.class</name>
-      <value>org.apache.hadoop.yarn.server.resourcemanager.scheduler.capacity.CapacityScheduler</value>
+      <value>org.apache.hadoop.yarn.server.resourcemanager.scheduler.fair.FairScheduler</value>
     </property>
-    
+    -->
     
     <property>
         <name>yarn.nodemanager.resource.detect-hardware-capabilities</name>
@@ -83,4 +83,12 @@
         <name>yarn.scheduler.maximum-allocation-vcores</name>
         <value>4</value>
     </property>
+
+    <property>
+        <name>yarn.nodemanager.resource.cpu-vcores</name>
+        <value>4</value>
+    </property>
+
+
+    
 </configuration>

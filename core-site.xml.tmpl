@@ -10,4 +10,14 @@
             <name>hadoop.tmp.dir</name>
             <value>{{HADOOP_TMP}}</value>
         </property>
+
+        <!-- The following setting affects how users are mapped to groups.
+        If submitting jobs from a machine other than the master node, add the submitter machine's user name here
+        and assign to the supergroup. This is not the optimal security setting and should not be used like this in
+        production.
+        -->
+        <property>
+            <name>hadoop.user.group.static.mapping.overrides</name>
+            <value>cachengo=supergroup;rec=supergroup</value>
+        </property>
     </configuration>
