@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+
+<!-- This config file is to be used on the machine that will submit the job.
+If you intend to submit jobs directly in the master node, you do not need to use this file.
+-->
+
+<configuration>
+
+        <property>
+            <name>fs.default.name</name>
+            <!-- Substitute the IPv4 address of the master node in the next line -->
+            <value>hdfs://192.168.1.27:9000</value>
+        </property>
+        <property>
+            <name>hadoop.user.group.static.mapping.overrides</name>
+            <!-- SUbstitute "rec" with the name of the user in the machine that will submit the job in the next line-->
+            <value>cachengo=supergroup;rec=supergroup</value>
+        </property>
+</configuration>

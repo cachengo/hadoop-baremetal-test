@@ -1,0 +1,82 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+
+<!--This config file is to be used on the machine that will submit the job.
+If you intend to submit jobs directly in the master node, you do not need to use this file.
+
+This is the most important file to configure on the job submitter. These settings affect the job configuration.
+Replace the IP Address on mapreduce.jobtracker.address with that of the machine running the Resource Manager.
+This will allow to track job's progress in Hadoop's Web interface.
+
+mapreduce.job.maps and mapreduce.job.reduces should always be the same as the number of files being created
+for the TestDFSIO benchmark.
+-->
+
+<configuration>
+    <property>
+            <name>mapreduce.jobtracker.address</name>
+            <value>192.168.1.27</value>
+    </property>
+
+    <property>
+            <name>mapreduce.framework.name</name>
+            <value>yarn</value>
+    </property>
+
+    <property>
+        <name>yarn.app.mapreduce.am.resource.mb</name>
+        <value>272</value>
+    </property>
+
+
+
+
+<property>
+    <name>yarn.app.mapreduce.am.resource.cpu-vcores</name>
+    <value>4</value>
+</property>
+
+<property>
+    <name>mapreduce.reduce.cpu.vcores</name>
+    <value>4</value>
+</property>
+
+<property>
+    <name>mapreduce.map.cpu.vcores</name>
+    <value>4</value>
+</property>
+
+<property>
+    <name>mapreduce.map.memory.mb</name>
+    <value>682</value>
+</property>
+
+<property>
+    <name>mapreduce.reduce.memory.mb</name>
+    <value>1364</value>
+</property>
+<property>
+    <name>mapreduce.job.maps</name>
+    <value>100</value>
+</property>
+
+<property>
+    <name>mapreduce.job.reduces</name>
+    <value>100</value>
+</property>
+
+<property>
+    <name>mapreduce.map.java.opts</name>
+    <value>-Xmx545m</value>
+</property>
+
+<property>
+    <name>mapreduce.reduce.java.opts</name>
+    <value>-Xmx1091m</value>
+</property>
+
+<!--<property>
+             <name>mapreduce.task.io.sort.mb</name>
+    <value>2500</value>
+</property>-->
+</configuration>

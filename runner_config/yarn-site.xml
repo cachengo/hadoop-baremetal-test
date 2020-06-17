@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<!--This config file is to be used on the machine that will submit the job.
+If you intend to submit jobs directly in the master node, you do not need to use this file.
+
+Replace the IP address on each setting below with that of the machine running the Hadoop ResourceManager.
+-->
+
+<configuration>
+
+    <property>
+            <name>yarn.resourcemanager.hostname</name>
+            <value>192.168.1.27</value>
+    </property>
+
+    <property>
+        <name>yarn.resourcemanager.bind-host</name>
+        <value>192.168.1.27</value>
+    </property>
+
+    <property>
+        <name>yarn.nodemanager.bind-host</name>
+        <value>192.168.1.27</value>
+    </property>
+
+</configuration>

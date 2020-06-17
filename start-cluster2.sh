@@ -54,28 +54,6 @@ mkdir -p ./config
 MAX_MEMORY_3=$((MAX_MEMORY / 3))
 MAX_MEMORY_6=$((MAX_MEMORY / 6))
 
-sed "s/{{NODE_MASTER}}/$MASTER_HOSTNAME/g" ./core-site.xml.tmpl > config/core-site.xml
-sed -i'.original' "s/{{NODE_MASTER_PORT}}/$NODE_MASTER_PORT/g" config/core-site.xml
-sed -i'.original' "s;{{HADOOP_TMP}};$HADOOP_TMP;g" config/core-site.xml
-
-sed "s;{{HADOOP_HOME}};$HADOOP_HOME;g" ./hdfs-site.xml.tmpl > config/hdfs-site.xml
-sed -i'.original' "s/{{REPLICATION}}/$REPLICATION/g" config/hdfs-site.xml
-sed -i'.original' "s;{{DATANODE_DIR}};$DATANODE_DIR;g" config/hdfs-site.xml
-sed -i'.original' "s;{{NAMENODE_DIR}};$NAMENODE_DIR;g" config/hdfs-site.xml
-
-
-sed "s/{{MAX_MEMORY}}/$MAX_MEMORY/g" ./yarn-site.xml.tmpl > config/yarn-site.xml
-sed -i'.original' "s/{{NODE_MASTER}}/$MASTER_HOSTNAME/g" config/yarn-site.xml
-sed -i'.original' "s/{{NODE_MASTER}}/$MASTER_HOSTNAME/g" config/hdfs-site.xml
-sed -i'.original' "s/{{VCORES}}/$VCORES/g" config/yarn-site.xml
-
-sed "s;{{MAPRED_DIR}};$MAPRED_DIR;g" ./mapred-site.xml.tmpl > config/mapred-site.xml
-sed -i'.original' "s/{{MAX_MEMORY}}/$MAX_MEMORY/g" config/mapred-site.xml
-sed -i'.original' "s/{{MAX_MEMORY}}/$MAX_MEMORY/g" config/yarn-site.xml
-sed -i'.original' "s/{{VCORES}}/$VCORES/g" config/mapred-site.xml
-
-sed "s/{{MAX_MEMORY}}/$MAX_MEMORY/g" ./capacity-scheduler.xml.tmpl > config/capacity-scheduler.xml
-sed "s/{{MAX_MEMORY}}/$MAX_MEMORY/g" ./resource-types.xml.tmpl > config/resource-types.xml
 
 send_config () {
   HADOOP_HOME=$(ssh cachengo@$1 'echo $HADOOP_HOME')
@@ -108,7 +86,6 @@ for ((i=0;i<${#WORKER_IPS[@]};++i)); do
   ssh cachengo@${WORKER_IPS[i]} "sudo mkdir -p $HADOOP_TMP"
   ssh cachengo@${WORKER_IPS[i]} "sudo chown -R cachengo:cachengo $HADOOP_TMP"
   ssh cachengo@${WORKER_IPS[i]} "sudo chmod -R a+rwx $HADOOP_TMP"
-  
   #if [[ ${WORKER_IPS[i]} != $MASTER_IP  ]]
   #then
     ssh cachengo@$MASTER_IP "echo ${WORKER_HOSTNAMES[i]} >> "'$HADOOP_HOME/etc/hadoop/slaves'
@@ -118,7 +95,7 @@ done
 ssh cachengo@$MASTER_IP 'start-dfs.sh'
 ssh cachengo@$MASTER_IP 'start-yarn.sh'
 ssh cachengo@$MASTER_IP 'mr-jobhistory-daemon.sh start historyserver'
-#ssh cachengo@$MASTER_IP "echo 127.0.0.1 >> "'$HADOOP_HOME/etc/hadoop/slaves'
+
 
 # Quick test
 ssh cachengo@$MASTER_IP 'hdfs dfsadmin -report'
